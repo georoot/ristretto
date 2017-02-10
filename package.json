@@ -5,10 +5,15 @@
   "main": "index.js",
   "dependencies": {
     "dotenv": "4.0.0",
+    "inspect": "0.0.2",
     "ssh2": "0.5.4"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "1.11.0"
+  },
   "scripts": {
+    "start": "node app.js",
+    "devServer": "nodemon app.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
