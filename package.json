@@ -1,0 +1,25 @@
+{
+  "name": "ristretto",
+  "version": "1.0.0",
+  "description": "Git daemon in nodejs",
+  "main": "index.js",
+  "dependencies": {
+    "dotenv": "4.0.0",
+    "ssh2": "0.5.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/georoot/ristretto.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/georoot/ristretto/issues"
+  },
+  "homepage": "https://github.com/georoot/ristretto#readme"
+}
