@@ -6,6 +6,7 @@ var repoSchema = new Schema({
   title: {type: String,required: true},
   owner: {type: String, required: true},
   pub  : {type: Boolean,default: false},
+  admin: {type: Array},
   read : {type: Array},
   write: {type: Array}
 });
