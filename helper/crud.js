@@ -1,10 +1,10 @@
 var helper = function(model){
   this.model = model;
 
-  this.list = ()=>{
+  this.list = (filter)=>{
     return new Promise((fullfill,reject)=>{
       this.model
-        .find({})
+        .find(filter)
         .select('-__v')
         .then(fullfill)
         .catch(reject);
