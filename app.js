@@ -16,6 +16,6 @@ var server = new ssh2.Server({
   },(client)=>{
     helper(client);
   });
-server.listen(8090,'127.0.0.1',()=>{
-  console.log(chalk.green.bold("Running ssh Daemon on port 8090"));
+server.listen(parseInt(process.env.GitPort),'127.0.0.1',()=>{
+  console.log(chalk.green.bold("Running GIT daemon on : "+process.env.GitPort));
 });

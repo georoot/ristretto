@@ -1,6 +1,6 @@
 {
   "name": "ristretto",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "Git daemon in nodejs",
   "main": "index.js",
   "dependencies": {

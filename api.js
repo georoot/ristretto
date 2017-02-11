@@ -21,7 +21,7 @@ app.use((req,res,next)=>{
   res.status(404).json({err: "Route not found"});
 });
 
-app.listen(3000,()=>{
-  console.log(chalk.green.bold("Running HTTP api on port 3000"));
+app.listen(parseInt(process.env.HttpPort),()=>{
+  console.log(chalk.green.bold("Running HTTP api on : "+process.env.HttpPort));
 });
 module.exports = app;
