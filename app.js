@@ -3,6 +3,7 @@ const ssh2 = require('ssh2');
 const fs = require('fs');
 const mongoose = require('mongoose');
 const helper = require('./lib/ssh');
+const chalk = require('chalk');
 var pkey = fs.readFileSync(process.env.privateKey);
 
 mongoose.connect('mongodb://'+process.env.DbHost+'/'+process.env.DbName);
@@ -16,5 +17,5 @@ var server = new ssh2.Server({
     helper(client);
   });
 server.listen(8090,'127.0.0.1',()=>{
-    console.log('listening on port 8090');
-  });
+  console.log(chalk.green.bold("Running ssh Daemon on port 8090"));
+});

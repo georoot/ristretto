@@ -51,10 +51,10 @@ helper['list'] = ()=>{
 helper['findUser'] = (data)=>{
   return new Promise((fullfill,reject)=>{
     model
-      .findOne({email:data.email})
+      .findOne({username:data.username})
       .then((user)=>{
         if(user == null){
-          reject(new Error("Invalid email or password"));
+          reject(new Error("Invalid username or password"));
         }else{
           data.user = user;
           fullfill(data);
@@ -72,7 +72,7 @@ helper['validatePassword'] = (data)=>{
         if(res == true){
           fullfill(data);
         }else{
-          reject(new Error("Invalid email or password"));
+          reject(new Error("Invalid username or password"));
         }
       })
       .catch(reject);
