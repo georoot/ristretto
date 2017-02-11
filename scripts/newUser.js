@@ -23,6 +23,7 @@ prompt.get([{
     return true;
     }
   }], function (err, result) {
+    result.role = "admin";
     helper['hashPassword'](result)
       .then(helper['save'])
       .then(()=>{
