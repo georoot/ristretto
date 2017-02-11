@@ -16,7 +16,7 @@ route.post("/",(req,res,next)=>{
     });
 });
 
-route.get("/",sec['getUser'],sec['allowByRole'](["admin"]),(req,res,next)=>{
+route.get("/",(req,res,next)=>{
   helper['list']({})
     .then((data)=>{
       res.json(data);
