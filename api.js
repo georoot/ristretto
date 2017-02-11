@@ -1,6 +1,10 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const loader = require('require-dir');
+mongoose.connect('mongodb://'+process.env.DbHost+'/'+process.env.DbName);
+mongoose.Promise = global.Promise;
+var db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
 
 var app = express();
 
