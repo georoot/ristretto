@@ -5,6 +5,13 @@ const sec = require('../helper/security');
 var crud = new crudHelper(model);
 var route = express.Router();
 
+/**
+ * @api {get} /repo Request All user repositories
+ * @apiName GetRepo
+ * @apiGroup Repo
+ * @apiHeader {String} Authorization Users unique access-key.
+ *
+ */
 route.get("/",sec['getUser'],(req,res,next)=>{
   crud['list']({owner:req.user.username})
     .then((data)=>{
@@ -15,6 +22,13 @@ route.get("/",sec['getUser'],(req,res,next)=>{
     });
 });
 
+
+/**
+ * @api {get} /repo/:id Request specific repo information
+ * @apiName GetRepoInfo
+ * @apiGroup Repo
+ *
+ */
 route.get("/:id",(req,res,next)=>{
   crud['getOne'](req.params.id)
     .then((data)=>{
@@ -25,6 +39,13 @@ route.get("/:id",(req,res,next)=>{
     });
 });
 
+/**
+ * @api {post} /repo Create new repository
+ * @apiName CreateRepo
+ * @apiGroup Repo
+ * @apiParam {String} title Name of the repository
+ * @apiHeader {String} Authorization Users unique access-key.
+ */
 route.post("/",sec['getUser'],(req,res,next)=>{
   req.body.owner = req.user.username;
   req.body.admin = [];req.body.admin.push(req.user._id);
@@ -39,6 +60,12 @@ route.post("/",sec['getUser'],(req,res,next)=>{
     });
 });
 
+/**
+ * @api {put} /repo Update repository
+ * @apiName UpdateRepo
+ * @apiGroup Repo
+ * @apiHeader {String} Authorization Users unique access-key.
+ */
 route.put("/",sec['getUser'],(req,res,next)=>{
   if(req.body.admin.includes(req.user._id)){
     crud['update'](req.body)
@@ -53,6 +80,12 @@ route.put("/",sec['getUser'],(req,res,next)=>{
   }
 });
 
+/**
+ * @api {delete} /repo/:id Delete repository
+ * @apiName DeleteRepo
+ * @apiGroup Repo
+ * @apiHeader {String} Authorization Users unique access-key.
+ */
 route.delete("/:id",sec['getUser'],(req,res,next)=>{
   if(req.body.admin.includes(req.user._id)){
     crud['del'](req.params.id)

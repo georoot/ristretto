@@ -38,3 +38,6 @@ jspm_packages
 
 # Environmane
 .env
+
+# Docs
+docs

@@ -24,6 +24,7 @@
     "start": "node app.js",
     "devDaemon": "nodemon app.js",
     "devApi": "nodemon api.js",
+    "genDocs": "apidoc -i routes/ -o docs/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

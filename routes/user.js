@@ -4,6 +4,14 @@ const sec = require('../helper/security');
 
 var route = express.Router();
 
+/**
+ * @api {post} /user Signup route for user
+ * @apiName CreateUser
+ * @apiGroup User
+ *
+ * @apiParam {String} username Username for the person
+ * @apiParam {String} password Password for the person
+ */
 route.post("/",(req,res,next)=>{
   helper['hashPassword'](req.body)
     .then(helper['setUserRole'])
@@ -16,6 +24,13 @@ route.post("/",(req,res,next)=>{
     });
 });
 
+/**
+ * @api {get} /user Request all User information
+ * @apiName GetUsers
+ * @apiGroup User
+ *
+ * @apiPermission admin
+ */
 route.get("/",sec['getUser'],sec['allowByRole'](["admin"]),(req,res,next)=>{
   helper['list']({})
     .then((data)=>{
@@ -26,6 +41,14 @@ route.get("/",sec['getUser'],sec['allowByRole'](["admin"]),(req,res,next)=>{
     });
 });
 
+/**
+ * @api {post} /user/token Generate authentication token
+ * @apiName GnerateToken
+ * @apiGroup User
+ *
+ * @apiParam {String} Username for the user.
+ * @apiParam {String} Password for the user.
+ */
 route.post("/token",(req,res,next)=>{
   helper['findUser'](req.body)
     .then(helper['validatePassword'])
