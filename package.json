@@ -1,5 +1,5 @@
 {
-  "name": "ristretto",
+  "name": "ristretto.git",
   "version": "0.0.1",
   "description": "Git daemon in nodejs",
   "main": "index.js",
