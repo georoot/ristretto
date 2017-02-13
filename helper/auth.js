@@ -35,7 +35,12 @@ helper['save'] = (data)=>{
     new model(data)
       .save()
       .then(()=>{
-        dir(process.env.GitBase+"/"+data.username,reject);
+        dir(process.env.GitBase+"/"+data.username,(err)=>{
+          if(err) reject();
+          else{
+            fullfill();
+          }
+        });
       })
       .then(fullfill)
       .catch(reject);
