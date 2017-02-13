@@ -1,0 +1,1 @@
+<div ng-controller="repoCtrl" ng-init="getRepo()" class="container repo-view"><h1 ng-bind="params.repo"></h1><h2>Getting started</h2><div class="code"><p ng-bind="cloneUrl"></p><p>cd {{params.repo}}</p><p>echo "# {{params.repo}}" >> README.md</p><p>git add README.md</p><p>git commit -m "Initial commit"</p><p>git push</p></div></div>

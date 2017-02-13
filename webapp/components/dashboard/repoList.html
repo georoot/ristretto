@@ -1,0 +1,1 @@
+<div ng-controller="authCtrl" ng-show="auth==true" class="container dashboard"><div ng-controller="repoCtrl" ng-init="list()" class="row"><h2>My repositories</h2><ul><li ng-repeat="repo in repoList"><a href="/{{repo.owner}}/{{repo.title}}" ng-bind="repo.title"></a></li></ul></div></div>
