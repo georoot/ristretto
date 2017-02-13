@@ -2,8 +2,12 @@ const express = require('express');
 const crudHelper    = require('../helper/crud');
 const model   = require('../models/repo');
 const sec = require('../helper/security');
+const git = require('../helper/git');
 var crud = new crudHelper(model);
 var route = express.Router();
+
+//var gitClient = new git("georoot","temp");
+//gitClient.init();
 
 /**
  * @api {get} /repo Request All user repositories
