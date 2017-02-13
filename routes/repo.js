@@ -1,5 +1,6 @@
 const express = require('express');
 const crudHelper    = require('../helper/crud');
+const dir = require('mkdirp');
 const model   = require('../models/repo');
 const sec = require('../helper/security');
 const git = require('../helper/git');
@@ -55,13 +56,23 @@ route.post("/",sec['getUser'],(req,res,next)=>{
   req.body.admin = [];req.body.admin.push(req.user._id);
   req.body.read = [];req.body.read.push(req.user._id);
   req.body.write = [];req.body.write.push(req.user._id);
-  crud['add'](req.body)
-    .then(()=>{
-      res.status(200).end();
-    })
-    .catch((err)=>{
-      res.status(400).json({err:err.message});
-    });
+  dir(process.env.GitBase+"/"+req.user.username+"/"+req.body.title+".git",(err)=>{
+    if(err){
+      res.status(400).end();
+    }else{
+      var repo = new git(req.user.username,req.body.title);
+      crud['add'](req.body)
+        .then(()=>{
+          res.status(200).end();
+        })
+        .then(()=>{
+          repo.init();
+        })
+        .catch((err)=>{
+          res.status(400).json({err:err.message});
+        });
+    }
+  });
 });
 
 /**
