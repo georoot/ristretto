@@ -6,10 +6,10 @@ const helper = require('./lib/ssh');
 const chalk = require('chalk');
 var pkey = fs.readFileSync(process.env.privateKey);
 
-mongoose.connect('mongodb://'+process.env.DbHost+'/'+process.env.DbName);
-mongoose.Promise = global.Promise;
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error:'));
+//mongoose.connect('mongodb://'+process.env.DbHost+'/'+process.env.DbName);
+//mongoose.Promise = global.Promise;
+//var db = mongoose.connection;
+//db.on('error', console.error.bind(console, 'connection error:'));
 
 var server = new ssh2.Server({
     hostKeys: [pkey.toString()]
