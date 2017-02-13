@@ -44,6 +44,16 @@ route.get("/:id",(req,res,next)=>{
     });
 });
 
+route.get("/:user/:repo",sec['getUser'],(req,res,next)=>{
+  crud['list']({owner:req.params.user,title:req.params.repo})
+    .then((data)=>{
+      res.json(data[0])
+    })
+    .catch((err)=>{
+      res.status(400).json({err:err.message});
+    });
+});
+
 /**
  * @api {post} /repo Create new repository
  * @apiName CreateRepo
