@@ -4,7 +4,7 @@
   "description": "Git daemon in nodejs",
   "main": "index.js",
   "dependencies": {
-    "bcrypt": "1.0.2",
+    "bcryptjs": "2.4.3",
     "body-parser": "1.16.1",
     "buffer-equal-constant-time": "1.0.1",
     "chalk": "1.1.3",
