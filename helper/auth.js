@@ -1,6 +1,7 @@
 const model = require('../models/user');
 const bcrypt= require('bcrypt');
 const jwt = require('jsonwebtoken');
+const dir = require('mkdirp');
 
 const SaltRound = parseInt(process.env.SaltRounds);
 
@@ -33,6 +34,9 @@ helper['save'] = (data)=>{
   return new Promise((fullfill,reject)=>{
     new model(data)
       .save()
+      .then(()=>{
+        dir(process.env.GitBase+"/"+data.username,reject);
+      })
       .then(fullfill)
       .catch(reject);
   });
