@@ -31,6 +31,7 @@ var helper = function(model){
   }
 
   this.update = (data)=>{
+    console.log(data);
     return new Promise((fullfill,reject)=>{
       model
         .findOneAndUpdate({_id:data._id},{$set:data},{new:true})
