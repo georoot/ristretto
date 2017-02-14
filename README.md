@@ -1,4 +1,5 @@
 [![Join the chat at https://gitter.im/ristretto-git/Lobby](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/ristretto-git/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social&style=plastic)](https://github.com/georoot/ristretto)
 
 # Ristretto
 
