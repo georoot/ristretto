@@ -3,7 +3,7 @@ const bcrypt= require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const dir = require('mkdirp');
 
-const SaltRound = parseInt(process.env.SaltRounds);
+const SaltRound = parseInt(process.env.SaltRound);
 
 var helper = {};
 
