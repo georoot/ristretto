@@ -189,7 +189,7 @@ module.exports = function(app) {
       });
 
     $locationProvider.html5Mode(true);
-    RestangularProvider.setBaseUrl("http://localhost:3000");
+    RestangularProvider.setBaseUrl("/api");
   })
 }
 
