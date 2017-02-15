@@ -9,6 +9,11 @@ Current release has two components
 1. Git server that manages requests over ssh
 2. Simple api that currently support authentication and creating new user repo.
 
+### Testing
+
+I have hosted a version of code over [here](http://git.rahulbhola.ml/). Remember
+that the server is only for test and i don't take any backups on the same.
+
 ## Installation
 
 Most of the parts about installation is pretty straight as you see in a node
